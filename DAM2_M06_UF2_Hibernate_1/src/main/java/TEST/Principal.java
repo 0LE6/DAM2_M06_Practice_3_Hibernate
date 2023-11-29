@@ -23,14 +23,26 @@ public class Principal {
 	      
 	      t= entitymanager.getTransaction();
 	      t.begin();
+	      
+	      // C.R.U.D.
+	      // persist - CREATE
 	      Empleat e = new Empleat( ); 
-	      e.setId(9996);
-	      e.setCognom("CHIC");
-	      e.setNom("FERRAN");
-	      e.setSalari( 40000D );
-	      e.setDataNaixement(Date.valueOf("1968-11-30"));
-	      entitymanager.persist( e );
+	      //e.setId(9996);
+//	      e.setCognom("CHIC");
+//	      e.setNom("FERRAN");
+//	      e.setSalari( 40000D );
+//	      e.setDataNaixement(Date.valueOf("1968-11-30"));
+//	      entitymanager.persist( e );
+	      
+	      // find - READ (Giving the name of our class and id of the row to select)
+	      e = entitymanager.find(Empleat.class, 9996);
+	      System.out.println(e);
+	      
+	      // merge - UPDATE
+	      
 	      t.commit();
+	      
+	      
 
 	      entitymanager.close( );
 	      emfactory.close( );
