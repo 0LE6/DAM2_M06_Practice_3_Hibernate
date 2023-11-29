@@ -26,18 +26,30 @@ public class DAOManagerHibernateImpl implements DAOManager{
     }
 
 	
-	@Override
-	public void createEmployee(Empleat e) {
-		
-		eTransact.begin();
-		e.setId(e.getId());
-		e.setCognom(e.getNom());
-		e.setNom(e.getNom());
-		e.setSalari(e.getSalari());
-		e.setDataNaixement(e.getDataNaixement());
-		eMan.persist(e); 
-		
-	}
+    @Override
+    public void createEmployee(Empleat e) {
+    	
+        EntityTransaction transaction = null;
+
+        try {
+            transaction = eMan.getTransaction();
+            transaction.begin();
+
+            // Operación de persistencia
+            eMan.persist(e);
+
+            // Confirma la transacción
+            transaction.commit();
+        } catch (Exception ex) {
+            // Manejo de errores y rollback en caso de excepción
+            if (transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
+        }
+    }
+
+
 
 	@Override
 	public double getMaxSalary() {
@@ -46,9 +58,14 @@ public class DAOManagerHibernateImpl implements DAOManager{
 	}
 	
 	@Override
-	public void close() throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
+    public void close() {
+        // Cierra el EntityManager y el EntityManagerFactory al finalizar
+        if (eMan != null && eMan.isOpen()) {
+            eMan.close();
+        }
+        if (eManFact != null && eManFact.isOpen()) {
+            eManFact.close();
+        }
+    }
 
 }
