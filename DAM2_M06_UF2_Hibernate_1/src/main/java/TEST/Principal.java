@@ -17,6 +17,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
+		  /* C.R.U.D.
 		  EntityManagerFactory emfactory = 
 				  Persistence.createEntityManagerFactory("ORMEmployee");
 		  
@@ -62,9 +63,10 @@ public class Principal {
 	    	  System.out.println("GREAT SUCCESS!"); 
 	      }
 	      
-		  t.commit(); /* if there's not a commit after, there's no delete */
+		  t.commit(); // if there's not a commit after, there's no delete
 	      entitymanager.close( );
 	      emfactory.close( );
+	      */
 
 	}
 
