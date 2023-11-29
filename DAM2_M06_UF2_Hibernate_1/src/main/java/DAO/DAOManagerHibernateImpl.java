@@ -4,6 +4,9 @@ import MODEL.Empleat;
 
 public class DAOManagerHibernateImpl implements DAOManager{
 
+	
+	
+	
 	@Override
 	public void createEmployee(Empleat e) {
 		// TODO Auto-generated method stub
