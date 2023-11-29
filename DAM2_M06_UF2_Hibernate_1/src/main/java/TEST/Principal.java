@@ -9,6 +9,9 @@ import javax.persistence.Persistence;
 
 import MODEL.Empleat;
 
+// https://www.tutorialspoint.com/jpa/jpa_architecture.htm
+// https://www.tutorialspoint.com/jpa/jpa_entity_managers.htm
+
 
 public class Principal {
 
