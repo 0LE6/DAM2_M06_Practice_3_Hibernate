@@ -4,11 +4,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+
+import javax.persistence.Query;
+
 import java.sql.Date;
 
 import MODEL.Empleat;
 
-public class DAOManagerHibernateImpl implements DAOManager{
+public class DAOManagerHibernateImpl implements DAOManager {
     
     
 	private EntityManagerFactory eManFact;
@@ -51,13 +54,27 @@ public class DAOManagerHibernateImpl implements DAOManager{
 
 	@Override
 	public double getMaxSalary() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		Double salary = 0.0;
+		try {
+
+			// NOTE : the SELECT is done on our class, not the table
+			// for that reason we use "salari" instead of "salary" and 
+			// "Empleat" instead of "Employee".
+            Query query = 
+            		eMan.createQuery("SELECT MAX(e.salari) FROM Empleat e");
+
+            salary = (Double) query.getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            
+        }
+		return (salary != null) ? salary : 0;
 	}
 	
 	@Override
     public void close() {
-        // Cierra el EntityManager y el EntityManagerFactory al finalizar
+        // Closing the EntityManager y el EntityManagerFactory 
         if (eMan != null && eMan.isOpen()) {
             eMan.close();
         }

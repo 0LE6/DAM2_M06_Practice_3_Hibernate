@@ -7,6 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import DAO.DAOManager;
+import DAO.DAOManagerFactory;
 import DAO.DAOManagerHibernateImpl;
 import MODEL.Empleat;
 
@@ -18,20 +20,30 @@ public class Principal {
 
 	public static void main(String[] args) throws Exception {
 		
-		DAOManagerHibernateImpl dao = new DAOManagerHibernateImpl();
-
+		DAOManager dao = null; // ??
+		
         try {
         	
-        	// Testing the method createEmployee(Empleat e){ }
-            Empleat e = new Empleat();
-            e.setId(1968);
-            e.setNom("FERRAN");
-            e.setCognom("CHIC");
-            e.setSalari(999999D);
-            e.setDataNaixement(Date.valueOf("1968-11-30"));
-            dao.createEmployee(e);
+        	DAOManagerFactory daoFac = new DAOManagerFactory();
+        	dao = daoFac.createDAOManager(); 
+        	
+        	// Testing the method -- createEmployee(Empleat e){ } --
+        	// [X] Method createEmployee works
+//            Empleat e = new Empleat();
+//            e.setId(1969);
+//            e.setNom("FERRAN 2");
+//            e.setCognom("CHIC");
+//            e.setSalari(999999D);
+//            e.setDataNaixement(Date.valueOf("1968-11-30"));
+//            dao.createEmployee(e);
             
-            // [X] Method createEmployee works
+            
+            
+            // Testing the method -- public double getMaxSalary() { } --
+            // [X] Method getMaxSalary works
+            double maxSalary = dao.getMaxSalary();
+            System.out.println("The MAX salary is --> " + maxSalary);
+            
             
             
             
