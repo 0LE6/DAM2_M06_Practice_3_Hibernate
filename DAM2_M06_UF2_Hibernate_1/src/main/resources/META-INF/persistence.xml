@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
 	http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.org/xml/ns/persistence">
+	xmlns="http://java.sun.com/xml/ns/persistence">
 
     <persistence-unit transaction-type="RESOURCE_LOCAL" name="ORMEmployee">
 
