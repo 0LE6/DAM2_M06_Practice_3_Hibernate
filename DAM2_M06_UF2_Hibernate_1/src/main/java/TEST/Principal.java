@@ -27,23 +27,39 @@ public class Principal {
 	      // C.R.U.D.
 	      // persist - CREATE
 	      Empleat e = new Empleat( ); 
-	      //e.setId(9996);
-//	      e.setCognom("CHIC");
-//	      e.setNom("FERRAN");
-//	      e.setSalari( 40000D );
-//	      e.setDataNaixement(Date.valueOf("1968-11-30"));
-//	      entitymanager.persist( e );
+	      e.setId(9996);
+	      e.setCognom("CHIC_2");
+	      e.setNom("FERRAN_2");
+	      e.setSalari( 40000D );
+	      e.setDataNaixement(Date.valueOf("1968-11-30"));
+	      entitymanager.persist( e );
 	      
-	      // find - READ (Giving the name of our class and id of the row to select)
+	      // find - READ - (Giving the name of our class and id of the row to select)
 	      e = entitymanager.find(Empleat.class, 9996);
 	      System.out.println(e);
 	      
 	      // merge - UPDATE
+	      e = new Empleat();
+	      e.setId(9996);
+	      e.setCognom("CHIC_2");
+	      e.setNom("FERRAN_2");
+	      e.setSalari( 40000D );
+	      e.setDataNaixement(Date.valueOf("1968-11-30"));
+	      entitymanager.merge(e);
 	      
-	      t.commit();
+	      // testing the update [V]
+	      e = entitymanager.find(Empleat.class, 9996);
+	      System.out.println(e);
 	      
 	      
-
+	      // remove - DELETE -
+	      e = entitymanager.find(Empleat.class, 9996);
+	      if (e != null) { 
+	    	  entitymanager.remove(e); 
+	    	  System.out.println("GREAT SUCCESS!"); 
+	      }
+	      
+		  t.commit(); /* if there's not a commit after, there's no delete */
 	      entitymanager.close( );
 	      emfactory.close( );
 
