@@ -17,7 +17,8 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		  /* C.R.U.D.
+		  /* C.R.U.D. a pelo
+		  
 		  EntityManagerFactory emfactory = 
 				  Persistence.createEntityManagerFactory("ORMEmployee");
 		  
