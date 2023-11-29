@@ -8,22 +8,15 @@ import javax.persistence.Persistence;
 import MODEL.Empleat;
 
 public class DAOManagerHibernateImpl implements DAOManager{
-
-	EntityManagerFactory emfactory = 
-			  Persistence.createEntityManagerFactory("ORMEmployee");
-	  
-    EntityManager entitymanager = emfactory.createEntityManager( );
     
-    EntityTransaction t =null;
     
-    /*
-     	EntityManagerFactory eManFact = 
+ 	EntityManagerFactory eManFact = 
 			Persistence.createEntityManagerFactory("ORMEmployee");
 	
-	EntityManager eMan =  eManFact.createEntityManager( );
+	EntityManager eMan = eManFact.createEntityManager( );
 	
-	EntityTransaction = null;
-     */
+	EntityTransaction eTransact = null;
+    
 	
 	public DAOManagerHibernateImpl() {
 		
