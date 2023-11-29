@@ -10,17 +10,20 @@ import MODEL.Empleat;
 public class DAOManagerHibernateImpl implements DAOManager{
     
     
- 	EntityManagerFactory eManFact = 
-			Persistence.createEntityManagerFactory("ORMEmployee");
-	
-	EntityManager eMan = eManFact.createEntityManager( );
-	
-	EntityTransaction eTransact = null;
+	private EntityManagerFactory eManFact;
+    private EntityManager eMan;
+    private EntityTransaction eTransact;
     
-	
-	public DAOManagerHibernateImpl() {
-		
-	}
+    public DAOManagerHibernateImpl() {
+        try {
+
+            eManFact = Persistence.createEntityManagerFactory("ORMEmployee");
+            eMan = eManFact.createEntityManager();
+            eTransact = eMan.getTransaction();
+            
+        } catch (Exception e) { e.printStackTrace(); }
+    }
+
 	
 	@Override
 	public void createEmployee(Empleat e) {
