@@ -22,7 +22,7 @@ public class Principal {
 
         try {
         	
-        	// Testin the method createEmployee(Empleat e)
+        	// Testing the method createEmployee(Empleat e){ }
             Empleat e = new Empleat();
             e.setId(1968);
             e.setNom("FERRAN");
@@ -30,6 +30,10 @@ public class Principal {
             e.setSalari(999999D);
             e.setDataNaixement(Date.valueOf("1968-11-30"));
             dao.createEmployee(e);
+            
+            // [X] Method createEmployee works
+            
+            
             
         } catch (Exception e) {
         	e.printStackTrace();
