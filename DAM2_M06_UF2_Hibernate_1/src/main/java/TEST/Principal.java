@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import DAO.DAOManagerHibernateImpl;
 import MODEL.Empleat;
 
 // https://www.tutorialspoint.com/jpa/jpa_architecture.htm
@@ -15,8 +16,29 @@ import MODEL.Empleat;
 
 public class Principal {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
+		DAOManagerHibernateImpl dao = new DAOManagerHibernateImpl();
+
+        try {
+        	
+        	// Testin the method createEmployee(Empleat e)
+            Empleat e = new Empleat();
+            e.setId(1968);
+            e.setNom("FERRAN");
+            e.setCognom("CHIC");
+            e.setSalari(999999D);
+            e.setDataNaixement(Date.valueOf("1968-11-30"));
+            dao.createEmployee(e);
+            
+        } catch (Exception e) {
+        	e.printStackTrace();
+
+        } finally { dao.close(); }
+        
+        
+        
+        
 		  /* C.R.U.D. a pelo
 		  
 		  EntityManagerFactory emfactory = 

@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.sql.Date;
 
 import MODEL.Empleat;
 
@@ -27,7 +28,14 @@ public class DAOManagerHibernateImpl implements DAOManager{
 	
 	@Override
 	public void createEmployee(Empleat e) {
-		// TODO Auto-generated method stub
+		
+		eTransact.begin();
+		e.setId(e.getId());
+		e.setCognom(e.getNom());
+		e.setNom(e.getNom());
+		e.setSalari(e.getSalari());
+		e.setDataNaixement(e.getDataNaixement());
+		eMan.persist(e); 
 		
 	}
 
