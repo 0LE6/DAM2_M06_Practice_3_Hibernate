@@ -14,13 +14,17 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		  EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ORMEmployee");
+		  EntityManagerFactory emfactory = 
+				  Persistence.createEntityManagerFactory("ORMEmployee");
+		  
 	      EntityManager entitymanager = emfactory.createEntityManager( );
+	      
 	      EntityTransaction t =null;
+	      
 	      t= entitymanager.getTransaction();
 	      t.begin();
 	      Empleat e = new Empleat( ); 
-	      e.setId((long)9996);
+	      e.setId(9996);
 	      e.setCognom("CHIC");
 	      e.setNom("FERRAN");
 	      e.setSalari( 40000D );

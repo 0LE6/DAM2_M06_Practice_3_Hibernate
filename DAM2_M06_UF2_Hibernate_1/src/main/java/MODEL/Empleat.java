@@ -18,7 +18,7 @@ public class Empleat implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name="ID")
-	private Long id;
+	private int id;
 	
 	@Column(name="LASTNAME")
 	private String cognom;
@@ -35,7 +35,7 @@ public class Empleat implements Serializable {
 	/* Empty Constructor & Constructor w/ parameters */
 	public Empleat(){}
 	
-	public Empleat(Long id, String cognom, String nom, 
+	public Empleat(int id, String cognom, String nom, 
 					Date dataNaixement, double salari) {
 		this.id = id;
 		this.cognom = cognom;
@@ -47,8 +47,8 @@ public class Empleat implements Serializable {
 	/* Getters & Setters */
 	public static long getSerialversionuid() { return serialVersionUID;}
 	public void setSalari(Double salari) {this.salari = salari;}
-	public Long getId() {return id;}
-	public void setId(Long id) {this.id = id;}
+	public int getId() {return id;}
+	public void setId(int id) {this.id = id;}
 	public String getCognom() {return cognom;}
 	public void setCognom(String cognom) {this.cognom = cognom;}
 	public String getNom() {return nom;}
