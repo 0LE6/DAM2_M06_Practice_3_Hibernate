@@ -5,6 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://java.sun.com/xml/ns/persistence">
 
+	<!-- ORMEmployee es importante, lo emplearemos más adelante -->
     <persistence-unit transaction-type="RESOURCE_LOCAL" name="ORMEmployee">
 
 	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
