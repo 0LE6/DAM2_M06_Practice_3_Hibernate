@@ -5,7 +5,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import java.sql.Date;
 
 import MODEL.Empleat;
 
@@ -53,6 +52,7 @@ public class DAOManagerHibernateImpl implements DAOManager {
 	@Override
 	public double getMaxSalary() {
 		
+		// TASK : is correct this method?
 		Double salary = 0.0;
 		try {
 
