@@ -30,21 +30,14 @@ public class DAOManagerHibernateImpl implements DAOManager {
         EntityTransaction transaction = null;
 
         try {
+        	// If everything is OK, then commit, if not --> catch
             transaction = eMan.getTransaction();
             transaction.begin();
-
-            // Operación de persistencia
+            
             eMan.persist(e);
-
-            // Confirma la transacción
+            
             transaction.commit();
-        } catch (Exception ex) {
-            // Manejo de errores y rollback en caso de excepción
-            if (transaction != null && transaction.isActive()) {
-                transaction.rollback();
-            }
-            ex.printStackTrace();
-        }
+        } catch (Exception ex) { ex.printStackTrace(); }
     }
 
 
@@ -52,7 +45,7 @@ public class DAOManagerHibernateImpl implements DAOManager {
 	@Override
 	public double getMaxSalary() {
 		
-		// TASK : is correct this method?
+		// NOTE : is correct this method?
 		Double salary = 0.0;
 		try {
 
